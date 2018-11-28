@@ -1,15 +1,13 @@
-FROM node:9
+FROM node:alpine
 
-WORKDIR /app
+RUN mkdir -p /usr/src/app
 
-RUN npm install -g contentful-cli
+WORKDIR /usr/src/app
 
-COPY package.json .
+ADD index.js ./
+
+ADD package.json ./
+
 RUN npm install
 
-COPY . .
-
-USER node
-EXPOSE 3000
-
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "start"]
