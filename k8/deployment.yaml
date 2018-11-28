@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: node-example-deployment
+  name: node
 spec:
   replicas: 3
   template:
     metadata:
       labels:
-        app: node-example
+        app: node
     spec:
       containers:
       - name: node-example
-        image: huseyinbabal/node-example
+        image: anveshvemula/node
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
